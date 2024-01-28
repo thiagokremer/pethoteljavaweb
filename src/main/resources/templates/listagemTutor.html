@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+
+    <head>
+        <title>Projeto Pet Hotel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> 
+        <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" />  
+    </head>
+
+    <body>
+        <h1>Listagem de tutores</h1>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>CPF</td>
+                    <td>Endereço</td>
+                    <td>Contatos</td>
+                    <td>E-mail</td>
+                    <td>Telefones</td>
+                    <td>Pets</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="tutor : ${listaTutor}">
+                    <td th:text="${tutor.id}"></td>
+                    <td th:text="${tutor.nome}"></td>
+                    <td th:text="${tutor.cpf}"></td>
+                    <td th:text="${tutor.endereco}"></td>
+                    <td th:text="${tutor.contatos}"></td>
+                    <td th:text="${tutor.email}"></td>
+                    <td th:text="${tutor.telefones}"></td>
+                    <td>
+                        <a th:href="@{'/cadastro-pet?id=' + ${tutor.id}}">Cadastre o pet deste tutor</a>   |   
+                        <a th:href="@{'/listagem-petTutor?id=' + ${tutor.id}}">Verifique os pets cadastrados para este tutor</a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <br><div><a th:href="@{/cadastro-tutor}">Novo tutor</a></div>
+        <br>
+        <a th:href="@{/}"><button type="button" class="btn btn-dark"> Voltar</button></a>
+    </body>
+
+</html>
