@@ -11,10 +11,10 @@
     </head>
 
     <body>
-        <h1>Cadastro de pet</h1>
+        <h1>Atualize o pet</h1>
 
-        <form th:action="@{gravar-pet}" th:object="${pet}" method="post">
-            <input type="hidden" th:field="${tutor.id}">
+        <form th:action="@{atualizar-pet}" th:object="${pet}" method="post">
+            <input type="hidden" th:field="*{id}">
             <p>Nome: <input type="text" th:field="${pet.nome}"></p>
             <p>Sexo: <input type="text" th:field="${pet.sexo}"></p>
             <p>Idade: <input type="number" th:field="${pet.idade}"></p>
@@ -23,7 +23,7 @@
             <p>Data último remédido vermes: <input type="date" th:field="${pet.dataCuidados}"></p>
             <p>Cuidados especiais: <input type="text" th:field="${pet.cuidadosEspeciais}"></p>
             <p>Medicamentos: <input type="text" th:field="${pet.medicamentos}"></p>
-            <p><input type="submit" value="Cadastrar">
+            <p><input type="submit" value="Atualizar">
         </form>
 
 

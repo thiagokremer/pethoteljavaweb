@@ -1,11 +1,34 @@
 *{
     background-color: #ebbff2;
     font-family: Verdana;
-    color: #ebbff2;
+    color: #63061f;
+    margin-left: 15px;
 }
 
 body{
     background-color: #ebbff2;
     font-family: Verdana;
-    color: #ebbff2;
+    color: #63061f;
+}
+
+form p input{
+    background-color: #f5d7f0;
+}
+
+body img{
+    border-radius: 25px;
+}
+
+.btn{
+    background-color: #63061f;
+    color:#ebbff2;
+}
+
+.btn:hover{
+    background-color: #c967c6;
+    color:#63061f;
+}
+
+a, a:visited {
+    color: #63061f;
 }

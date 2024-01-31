@@ -11,13 +11,12 @@
     </head>
 
     <body>
-        <h1>Listagem de Pets</h1>
+        <h1>Listagem de Pets do tutor<b><span th:text="${tutor.nome}"/></b></h1>
 
         <table class="table">
 
             <thead>
                 <tr>
-                    <td>Tutor ID</td>
                     <td>ID</td>
                     <td>Nome</td>
                     <td>Sexo</td>
@@ -31,24 +30,29 @@
             </thead>
 
             <tbody>
-                <tr th:each="pet : ${listaPet}">
-                    <input type="hidden" th:field="${tutor.id}"></p>
-                    <td th:text="${tutor.nome}"></td>
-                    <td th:text="${pet.id}"></td>
-                    <td th:text="${pet.nome}"></td>
-                    <td th:text="${pet.sexo}"></td>
-                    <td th:text="${pet.idade}"></td>
-                    <td th:text="${pet.peso}"></td>
-                    <td th:text="${pet.castrado}"></td>
-                    <td th:text="${pet.dataCuidados}"></td>
-                    <td th:text="${pet.cuidadosEspeciais}"></td>
-                    <td th:text="${pet.medicamentos}"></td>
-                    </tr>
-            </tbody>
+                <tr th:each="pet : ${listaPetTutor}">
+            <input type="hidden" th:field="${tutor.id}"></p>
+            <td th:text="${pet.id}"></td>
+            <td th:text="${pet.nome}"></td>
+            <td th:text="${pet.sexo}"></td>
+            <td th:text="${pet.idade}"></td>
+            <td th:text="${pet.peso}"></td>
+            <td th:text="${pet.castrado}"></td>
+            <td th:text="${pet.dataCuidados}"></td>
+            <td th:text="${pet.cuidadosEspeciais}"></td>
+            <td th:text="${pet.medicamentos}"></td>
+            <td>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <a th:href="@{'/atualizar-pet?id=' + ${pet.id}}"><button type="button" class="btn">Atualizar pet</button></a><br>
+                    <a th:href="@{'/apagar-pet?id=' + ${pet.id}}"><button type="button" class="btn">Excluir pet</button></a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
 
-        </table>
+</table>
 
-        <a th:href="@{/listagem-tutor}"><button type="button" class="btn btn-dark"> Voltar</button></a>
-    </body>
+<a th:href="@{/listagem-tutor}"><button type="button" class="btn btn-dark"> Voltar</button></a>
+</body>
 
 </html>

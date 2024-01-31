@@ -21,10 +21,11 @@
                     <td>Nome</td>
                     <td>CPF</td>
                     <td>Endereço</td>
-                    <td>Contatos</td>
-                    <td>E-mail</td>
                     <td>Telefones</td>
+                    <td>E-mail</td>
+                    <td>Contatos de emergência</td>
                     <td>Pets</td>
+                    <td>Ações</td>
                 </tr>
             </thead>
 
@@ -34,18 +35,31 @@
                     <td th:text="${tutor.nome}"></td>
                     <td th:text="${tutor.cpf}"></td>
                     <td th:text="${tutor.endereco}"></td>
-                    <td th:text="${tutor.contatos}"></td>
-                    <td th:text="${tutor.email}"></td>
                     <td th:text="${tutor.telefones}"></td>
+                    <td th:text="${tutor.email}"></td>
+                    <td th:text="${tutor.contatos}"></td>
                     <td>
-                        <a th:href="@{'/cadastro-pet?id=' + ${tutor.id}}">Cadastre o pet deste tutor</a>   |   
-                        <a th:href="@{'/listagem-petTutor?id=' + ${tutor.id}}">Verifique os pets cadastrados para este tutor</a>
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <a th:href="@{'/cadastro-pet?id=' + ${tutor.id}}"><button type="button" class="btn" >Cadastre o pet</button></a><br>
+                            <a th:href="@{'/listagem-petTutor?id=' + ${tutor.id}}"><button type="button" class="btn">Liste os pets</button></a>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <a th:href="@{'/atualizar-tutor?id=' + ${tutor.id}}"><button type="button" class="btn">Atualizar tutor</button></a><br>
+                            <a th:href="@{'/apagar-tutor?id=' + ${tutor.id}}"><button type="button" class="btn">Excluir tutor</button></a>
+                        </div>
                     </td>
                 </tr>
             </tbody>
 
         </table>
-        <br><div><a th:href="@{/cadastro-tutor}">Novo tutor</a></div>
+        <br>
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <a  th:href="@{/cadastro-tutor}"><button type="button" class="btn" >Novo tutor</button></a>
+        </div>
+        <br>
         <br>
         <a th:href="@{/}"><button type="button" class="btn btn-dark"> Voltar</button></a>
     </body>

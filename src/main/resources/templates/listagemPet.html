@@ -18,7 +18,8 @@
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Nome</td>
+                    <td>Nome do Tutor</td>
+                    <td>Nome do Pet</td>
                     <td>Sexo</td>
                     <td>Idade</td>
                     <td>Peso</td>
@@ -32,6 +33,7 @@
             <tbody>
                 <tr th:each="pet : ${listaPet}">
                     <td th:text="${pet.id}"></td>
+                    <td th:text="${pet.tutor.nome}"></td>
                     <td th:text="${pet.nome}"></td>
                     <td th:text="${pet.sexo}"></td>
                     <td th:text="${pet.idade}"></td>
@@ -40,7 +42,13 @@
                     <td th:text="${pet.dataCuidados}"></td>
                     <td th:text="${pet.cuidadosEspeciais}"></td>
                     <td th:text="${pet.medicamentos}"></td>
-                    </tr>
+                    <td>
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <a th:href="@{'/atualizar-pet?id=' + ${pet.id}}"><button type="button" class="btn">Atualizar pet</button></a><br>
+                            <a th:href="@{'/apagar-pet?id=' + ${pet.id}}"><button type="button" class="btn">Excluir pet</button></a>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
 
         </table>

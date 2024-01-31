@@ -11,20 +11,21 @@
     </head>
 
     <body>
-        <h1>Cadastro de tutor</h1>
+        <h1>Atualize o tutor</h1>
 
-        <form th:action="@{gravar-tutor}" th:object="${tutor}" method="post">
+        <form th:action="@{atualizar-tutor}" th:object="${tutor}" method="post">
+            <input type="hidden" th:field="*{id}">
             <p>Nome: <input type="text" th:field="${tutor.nome}"></p>
             <p>CPF: <input type="text" th:field="${tutor.cpf}"></p>
             <p>Endereço: <input type="text" th:field="${tutor.endereco}"></p>
             <p>Telefones: <input type="text" th:field="${tutor.telefones}"></p>
             <p>E-mail: <input type="text" th:field="${tutor.email}"></p>
             <p>Contatos de emergência: <input type="text" th:field="${tutor.contatos}"></p> 
-            <p><input type="submit" value="Cadastrar">
+            <p><input type="submit" value="Atualizar">
         </form>
 
 
-        <a th:href="@{/}"><button type="button" class="btn btn-dark"> Voltar</button></a>
+        <a th:href="@{/listagem-tutor}"><button type="button" class="btn btn-dark"> Voltar</button></a>
     </body>
 
 </html>
